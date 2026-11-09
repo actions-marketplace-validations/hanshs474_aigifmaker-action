@@ -1,0 +1,31 @@
+name: AI GIF Maker
+description: "Turn text into animated GIFs with AI GIF Maker (aigifmaker.ai) in a workflow and get the GIF URL"
+author: hanshs474
+branding:
+  icon: image
+  color: purple
+inputs:
+  prompt:
+    description: What the GIF should show
+    required: true
+  api-key:
+    description: "A key from https://aigifmaker.ai/settings/apikeys, passed from a secret: ${{ secrets.AIGIFMAKER_API_KEY }}"
+    required: true
+  output-path:
+    description: If set, the GIF is downloaded to this path in the workspace
+    required: false
+    default: ""
+  timeout-minutes:
+    description: How long to wait for the GIF
+    required: false
+    default: "5"
+outputs:
+  gif-url:
+    description: URL of the finished GIF
+  path:
+    description: Where the GIF was saved, if output-path was set
+  id:
+    description: The AI GIF Maker task id
+runs:
+  using: node20
+  main: index.js
