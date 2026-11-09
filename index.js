@@ -19,7 +19,7 @@ async function main() {
   const id = await client.submit(input('prompt'));
   setOutput('id', id);
   console.log(`submitted GIF ${id}; polling`);
-  const url = await client.wait(id, { timeoutMs: (Number(input('timeout-minutes')) || 5) * 60_000 });
+  const url = await client.wait(id, { timeoutMs: (Number(input('timeout-minutes')) || 15) * 60_000 });
   setOutput('gif-url', url);
   const out = input('output-path');
   if (out) {

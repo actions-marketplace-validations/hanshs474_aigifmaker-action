@@ -18,7 +18,7 @@ inputs:
   timeout-minutes:
     description: How long to wait for the GIF
     required: false
-    default: "5"
+    default: "15"
 outputs:
   gif-url:
     description: URL of the finished GIF
